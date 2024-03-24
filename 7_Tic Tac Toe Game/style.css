@@ -6,7 +6,7 @@ body{
     background-color: #996D8E;
 
 }
-body>h1{
+main>h1{
     color: burlywood;
     text-align: center;
     font-family: cursive;
@@ -36,11 +36,51 @@ body>h1{
     box-shadow: 0 0 1rem rgba(0,0,0,0.1);
     font-size: 8vmin;
     color: burlywood;
+    background-color: #F0F5F9;
 }
 
-#reset_btn{
+main>#reset-btn{
+    /* padding: 1rem; */
+    /* font-size: 1.25rem; */
+    background-color: #191913;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: none;
+    border-radius: 4px;
+    padding: 3px;
+}
+#new-btn{
+    background-color: #191913;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: none;
+    border-radius: 4px;
+    padding: 3px;
+}
+
+#msg{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center; 
+    color: #ffffc7;
+    font-size: 8vmin;
     
+}
+
+.msg-container{
+    height: 100vmin;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.hide{
+display: none;
 }
