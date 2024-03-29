@@ -2,6 +2,15 @@
 //clascs 
 
 class ToyotaCar{
+    // constructor(){
+    //     console.log("creating an object");
+        
+    // }
+    constructor(brand,mileage){
+        console.log("creating an object using parameterized constructor");
+        this.brand = brand;
+        this.mileage = mileage;
+    }
     start(){
         console.log("car is starting" );
     }
@@ -16,6 +25,8 @@ class ToyotaCar{
 
 }
 
-let fortuner = new ToyotaCar();
-fortuner.setBrand("fortuner");
-let lexus = new ToyotaCar();
+let fortuner = new ToyotaCar("fortuner",11);
+console.log(fortuner);
+let lexus = new ToyotaCar("lexus",12);
+console.log(lexus);
+
