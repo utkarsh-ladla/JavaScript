@@ -12,19 +12,27 @@ let promise = new Promise((resolve, reject) => {
 
 });
 
-function getData(dataId,getnxtData) {
-    return Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            console.log("data",dataId);
-            if(getnxtData){
+function getData(dataId, getnxtData) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("data", dataId);
+            if (getnxtData) {
                 getnxtData();
             }
-            
-        },2000);
+            resolve(dataId);
+        }, 2000);
     });
-   
-    
 }
+
+// Promise chain
+let p1 = getData(1);
+p1.then((res) => {
+    console.log(res); 
+    // .then((res)=>{
+
+    // })
+});
+
 
 //A js promise object can be 
 //->pending :the result is undefined 
@@ -44,7 +52,8 @@ const getPromise = ()=>{
         resolve("success");
     });
 };
-let promise = getPromise();
-promise.then(()=>{
+let Promise = getPromise();
+Promise.then(()=>{
     console.log("promise fullfilled");
 })
+
