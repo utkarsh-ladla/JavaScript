@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      #container {
+        margin: 10px auto;
+        width: 500px;
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-top: 150px;
+      }
+
+      .button-container button {
+        margin: 0 10px;
+        width: 100px;
+        height: 50px;
+      }
+
+      .image {
+        width: 500px;
+        height: 300px;
+        margin-top: 40px;
+        position: absolute;
+        left: 0;
+        transition: transform 0.5s ease;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <br /><br />
+      <img class="image" src="img/pexels-catscoming-1359307.jpg" alt="" />
+      <img class="image" src="img/pexels-cong-h-613161-1404819.jpg" alt="" />
+      <img
+        class="image"
+        src="img/pexels-eftodii-aurelia-90976-735423.jpg"
+        alt=""
+      />
+      <img class="image" src="img/pexels-ezz7-691583.jpg" alt="" />
+      <img
+        class="image"
+        src="img/pexels-larissa-barbosa-945746-1870376.jpg"
+        alt=""
+      />
+      <img class="image" src="img/pexels-lucaspezeta-2930204.jpg" alt="" />
+      <img class="image" src="img/pexels-photo4passion-1828875.jpg" alt="" />
+      <img class="image" src="img/pexels-pixabay-104827.jpg" alt="" />
+      <img class="image" src="img/pexels-pixabay-416160.jpg" alt="" />
+
+      <br /><br />
+    </div>
+    <div class="button-container">
+      <button onclick="prev()">Previous</button>
+      <button onclick="toggleAutoplay()">start-stop</button>
+      <button onclick="next()">Next</button>
+    </div>
+    <script>
+      const images = document.querySelectorAll(".image");
+      let count = 0;
+      let timer;
+
+      function toggleAutoplay() {
+        if (!timer) {
+          timer = setInterval(next, 2000);
+        } else {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      function prev() {
+        count--;
+        if (count < 0) {
+          count = images.length - 1;
+        }
+        slideImage();
+      }
+
+      function next() {
+        count++;
+        if (count >= images.length) {
+          count = 0;
+        }
+        slideImage();
+      }
+
+      const slideImage = () => {
+        images.forEach((slide, index) => {
+          slide.style.left = `${(index - count) * 500}px`; // Adjust 500px according to the width of your images
+        });
+      };
+    </script>
+
+    <!-- <script>
+const images = document.querySelectorAll(".image");
+let count = 0;
+let timer; 
+
+function startStop() {
+  if (!timer) {
+    timer = setInterval(next, 2000); 
+  } else {
+    clearInterval(timer); 
+    timer = null; 
+  }
+}
+
+function prev() {
+  count--;
+  if (count < 0) {
+    count = images.length - 1;
+  }
+  slideImage();
+}
+
+function next() {
+  count++;
+  if (count >= images.length) {
+    count = 0;
+  }
+  slideImage();
+}
+
+const slideImage = () => {
+  images.forEach((slide, index) => {
+    slide.style.left = `${index * 100 - count * 100}%`; 
+  });
+};
+</script> -->
+  </body>
+</html>
