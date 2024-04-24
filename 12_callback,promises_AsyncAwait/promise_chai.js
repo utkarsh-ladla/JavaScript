@@ -5,7 +5,7 @@ function asyncFunc1() {
       resolve("success");
     }, 4000);
   });
-}
+} 
 
 function asyncFunc2() {
   return new Promise((resolve, reject) => {
